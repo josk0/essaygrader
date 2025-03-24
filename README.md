@@ -19,3 +19,8 @@ put some essays in `/essays_input` (as .txt or .md) your Anthropic API key in `.
 ~~1. load prompt from file~~
 2. parametrize number of grading criteria in rubric (so that you can exchange rubric)
 3. Make this tool easier to use by others: Load files that are not text or markdown files; make `grade-essays.py` a CLI tool
+
+
+## Excessive reasoning examples
+* run 2/39b151e9fff14d3cb2ea0f8adb8151e3.txt
+* run 3/839b1b947d8f43e89a011f83d6ae5546.txt

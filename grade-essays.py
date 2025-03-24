@@ -32,6 +32,8 @@ grader = EssayGrader(
 
 try:
   grader.grade_essays('./essays_input')
+  print("DONE! Saving results...") 
+  grader.df.to_csv('2025 essays.csv', index=False)
 except Exception as e: 
   import traceback
   print(f"Error grading essays: {e}")
@@ -42,5 +44,3 @@ except Exception as e:
     grader.df.to_csv('2025 essays incomplete.csv', index=False)
   else:
     print("No results to save.")
-
-grader.df.to_csv('2025 essays.csv', index=False)
