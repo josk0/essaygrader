@@ -12,6 +12,7 @@ put some essays in `/essays_input` (as .txt or .md) your Anthropic API key in `.
 1. Improve the prompt to shut down excessive reasoning (such as discussions with the student)
 2. extract fields from both thinking_block as well as response_block
 3. Experiment with temperature parameter
+4. Better error handling. Esp since API runs sometimes fail (httpx.ReadTimeout in `_send_to_api`): should save dataframe at the end either way
 
 ## Things that would be nice to have
 
