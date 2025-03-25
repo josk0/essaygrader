@@ -13,10 +13,10 @@ from src.essaygrader.grader import EssayGrader
 load_dotenv()
 api_key=os.getenv("ANTHROPIC_API_KEY")
 
-with open('rubric.txt', 'r') as file:
+with open('./config/rubric.txt', 'r') as file:
   rubric = file.read()
 
-with open('prompt.txt', 'r') as file:
+with open('./config/prompt.txt', 'r') as file:
   prompt = file.read()
 
 # with open('test-essay.txt', 'r') as file:
