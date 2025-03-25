@@ -1,10 +1,45 @@
 import asyncio
-from anthropic import AsyncAnthropic
+from anthropic import AsyncAnthropic, APIStatusError
 from anthropic.types import TextBlock, ThinkingBlock
 import pandas as pd
 import re
 import pathlib
+import time
+import random
+from functools import wraps
 from typing import Dict, Union
+
+def retry_with_exponential_backoff(max_retries=5, initial_delay=1, backoff_factor=2, max_delay=60):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            retries = 0
+            delay = initial_delay
+            
+            while retries < max_retries:
+                try:
+                    return func(*args, **kwargs)
+                except APIStatusError as e:
+                    error_type = getattr(e, "type", "")
+                    #error_message = getattr(e, "message", "")
+                    
+                    if "overloaded_error" in error_type or "rate_limit_error" in error_type:
+                        retries += 1
+                        if retries >= max_retries:
+                            print(f"Max retries ({max_retries}) exceeded for APIStatusError")
+                            raise
+                        # Calculate delay with jitter
+                        sleep_time = min(delay * (backoff_factor ** (retries - 1)) * (1 + random.random() * 0.1), max_delay)
+                        print(f"API {error_type}. Retrying in {sleep_time:.2f} seconds (attempt {retries}/{max_retries})")
+                        time.sleep(sleep_time)
+                    else:
+                        # Not an overloaded error, don't retry
+                        raise
+            
+            # This line shouldn't be reached but is here for safety
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
 
 class EssayGrader:
     def __init__(self, rubric, prompt, word_limit, anthroptic_api_key):
@@ -34,6 +69,7 @@ class EssayGrader:
         self.base_prompt = self.base_prompt.replace('{{WORD_LIMIT}}', str(word_limit))
         self.df = pd.DataFrame(columns=self.response_fields + ['essay_id'])
 
+    @retry_with_exponential_backoff(max_retries=5, initial_delay=1, backoff_factor=2)
     async def grade_essay(self, essay, essay_id):
         response_list = await self._send_to_api(essay)
         self._save_response_to_file(response_list, essay_id)
@@ -50,6 +86,7 @@ class EssayGrader:
         essays_dict = self._extract_essays_from_dir(directory)
         
         for essay_id, essay in essays_dict.items():
+            print(f"Grading essay {essay_id}...")
             asyncio.run(self.grade_essay(
                 essay=essay, 
                 essay_id=essay_id))
@@ -134,7 +171,6 @@ class EssayGrader:
                 results_dict[field] = None
 
         return results_dict
-
 
     async def _send_to_api(self, essay) -> list:
         async with self.client.messages.stream(
