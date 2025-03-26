@@ -13,10 +13,10 @@ from src.essaygrader.grader import EssayGrader
 load_dotenv()
 api_key=os.getenv("ANTHROPIC_API_KEY")
 
-with open('./config/rubric.txt', 'r') as file:
+with open('./config/rubric.md', 'r') as file:
   rubric = file.read()
 
-with open('./config/prompt.txt', 'r') as file:
+with open('./config/prompt.md', 'r') as file:
   prompt = file.read()
 
 # with open('test-essay.txt', 'r') as file:
@@ -35,10 +35,10 @@ try:
   print("DONE! Saving results...") 
   grader.df.to_csv('2025 essays.csv', index=False)
 except Exception as e: 
-  import traceback
+  # import traceback
   print(f"Error grading essays: {e}")
   print(f"Error type: {type(e)}")
-  traceback.print_exc()
+  # traceback.print_exc()
   if len(grader.df) > 0:
     print("Saving incomplete results...") 
     grader.df.to_csv('2025 essays incomplete.csv', index=False)

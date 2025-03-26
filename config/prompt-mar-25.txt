@@ -21,12 +21,11 @@ Instructions for Essay Evaluation:
 
 1. Read the essay and rubric carefully.
 
-2. Keep these general guidelines for a good essay in mind:
-   - Contains a valid argument
-   - Has a clear structure
+2. Keep these general guidelines for a good essay in mind: An excellent essay...
+   - Contains a logically valid argument
+   - Concentrates on a single consideration or a narrow line of argument
    - Employs simple language
-   - Uses examples to illustrate points and support arguments
-   - Focuses on a few key points and develops them carefully
+   - Illustrates the argument with examples
    - Directly answers the question posed
 
 3. Conduct a thorough analysis of the essay. Do this work inside <essay_analysis> tags in your thinking block. In your analysis:

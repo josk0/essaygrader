@@ -67,6 +67,8 @@ venv.bak/
 *.swp
 *.swo
 
+# Excel
+~$*.xlsx
 
 # macOS
 .DS_Store
