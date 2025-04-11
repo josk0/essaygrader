@@ -12,14 +12,13 @@ put some essays in `/essays_input` (as .txt or .md) your Anthropic API key in `.
 1. Improve the prompt to shut down excessive reasoning (such as discussions with the student)
 2. ~~extract fields from both thinking_block as well as response_block~~
 3. Experiment with temperature parameter
-4. Better error handling. Esp since API runs sometimes fail (httpx.ReadTimeout in `_send_to_api`): should save dataframe at the end either way
+4. ~~Better error handling. Esp since API runs sometimes fail (httpx.ReadTimeout in `_send_to_api`): should save dataframe at the end either way~~
 
 ## Things that would be nice to have
 
 1. ~~load prompt from file~~
 2. parametrize number of grading criteria in rubric (so that you can exchange rubric)
 3. Make this tool easier to use by others: Load files that are not text or markdown files; make `grade-essays.py` a CLI tool
-4. stream thiking block
 
 ## Things to improve about the prompt or rubric
 - ~~Require statement and reward clarity of terms and definitions~~
@@ -38,4 +37,4 @@ put some essays in `/essays_input` (as .txt or .md) your Anthropic API key in `.
 * run 16/49cd5cd8c4fa4ad8a82abe2b79c860d7.txt
 * run 16/ccd97f1e31154b07b5613b98000a176a.txt
 * run 16/0c56120ae35143a09101b1faf21fa5c7.txt
-* run 17/a473e356496446db876e78728526c7ae.txt
+* run 17 incomplete/a473e356496446db876e78728526c7ae.txt

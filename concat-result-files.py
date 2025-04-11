@@ -1,3 +1,5 @@
+"""Helper script to combine CSV files from different grading runs into one CSV"""
+
 import os
 import pandas as pd
 import glob

@@ -19,9 +19,9 @@ Here are the materials you'll be working with:
 
 Instructions for Essay Evaluation:
 
-1. Read the essay, rubric, and word limit carefully. Note that the essay may have been converted from PDF, so ignore any typos or artifacts that might result from this conversion. Ignore consistent misspellings.
+1. Read the essay, rubric, and word limit carefully. Note that the essay may have been converted from PDF, so ignore any typos, consistent misspellings, or artifacts that might result from this conversion. 
 
-2. Keep these general guidelines for a good essay in mind:
+2. Keep these general guidelines for a good essay in mind. A good essay:
    - Contains a logically valid argument
    - Concentrates on a single consideration or a narrow line of argument
    - Employs simple language
@@ -63,10 +63,10 @@ Instructions for Essay Evaluation:
 
 9. Create feedback directly for the student based on your overall assessment. This feedback should:
    a) Address the student directly.
-   b) Use informal language (e.g., "Good job!" or "Here are two things you could try for next time:" or "I really enjoyed reading your essay.").
+   b) Use informal language (e.g., "Good job!" or "Here are two things you could try for next time:").
    c) Be critical and precisely identify the 1-2 main weaknesses.
-   d) "Sandwich" the critical points between encouraging and supportive words. Be specific when identifying strengths by quoting from the essay.
-   e) Explain 1-2 ways in which the student can improve in future assignments. Be specific (drawing on the rubric) and give a concrete example of what the improvement could look like.
+   d) "Sandwich" the critical points between strengths that you identified. Be specific when identifying strengths by quoting from the essay.
+   e) Explain 1-2 ways in which the student can improve in future assignments. Be specific (make reference to the rubric categories) and give at least one concrete example of what the improvement could look like.
 
 Present your final evaluation using the following structure:
 
@@ -116,4 +116,4 @@ Remember:
 
 Give the score for each criterion (in <score1>, <score2>, etc.) in the exact same terms that are used in the grading rubric (e.g., "good", "needs improvement", "excellent", etc.). Give the total score in <total_score> only as a number or points, do not include the overall possible points in the total score tag.
 
-Begin your evaluation by analyzing the essay in your thinking block using <thinking_block> tags. Your final output should consist only of the evaluation structure provided above and should not duplicate or rehash any of the work you did in the thinking block.
+Begin your evaluation by analyzing the essay in your thinking block using <thinking_block> tags. Stop thinking when you’ve created feedback to the student. Your final output should consist only of the evaluation structure provided above and should not duplicate or rehash any of the work you did in the thinking block.
