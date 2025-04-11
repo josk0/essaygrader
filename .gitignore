@@ -93,5 +93,5 @@ logs/
 # project
 outputs/
 essays_input/*
-!essay_input/
+!essays_input/
 tests/
